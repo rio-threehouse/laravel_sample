@@ -5,7 +5,7 @@
 <div class="container ops-main">
 <div class="row">
   <div class="col-md-12">
-    <br />
+    <!-- <br />
     <button class="btn btn-xs btn-secondary">
       @if (Route::has('login'))
         <div>
@@ -16,11 +16,11 @@
             @endauth
         </div>
     @endif
-    </button>
+    </button> -->
     <h3 class="ops-title">コメント一覧</h3>
   </div>
 </div>
-@if(Auth::check()) 
+
 <div class="row">
   <div class="col-md-11 col-md-offset-1">
     <table class="table text-center">
@@ -29,6 +29,7 @@
         <th class="text-center">投稿者</th>
         <th class="text-center">タグ</th>
         <th class="text-center">コメント</th>
+        <th class="text-center">返信</th>
         <th class="text-center">編集</th>
         <th class="text-center">削除</th>
       </tr>
@@ -38,6 +39,7 @@
         <td>{{ $comment->name }}</td>
         <td>{{ $comment->tag }}</td>
         <td>{{ $comment->comment }}</td>
+        <td><a href="/comment/{{ $comment->id }}/reply">{{ $comment->replies()->count() }}</a></td>
         <td>
           <button class="btn btn-xs btn-secondary">
             <a href="/comment/{{ $comment->id }}/edit">編集</a>
@@ -56,4 +58,3 @@
     <div><a href="/comment/create" class="btn btn-default">新規作成</a></div>
   </div>
 </div>
-@endif

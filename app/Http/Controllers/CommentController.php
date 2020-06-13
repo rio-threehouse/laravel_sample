@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CommentRequest;
 use App\Comment;
+use App\Reply;
 
 class CommentController extends Controller
 {
