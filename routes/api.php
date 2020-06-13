@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/comment', "API\CommentController@index");
-Route::get('/comment/{id}', "API\CommentController@show");
+// Route::get('/comment', "API\CommentController@index");
+// Route::get('/comment/{id}', "API\CommentController@show");
+// Route::store('/comment', "API\CommentController@store");
 
+Route::apiResource('comment','API\CommentController');

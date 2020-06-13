@@ -31,7 +31,14 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $comment = new Comment();
+      
+      $comment->name = $request->name;
+      $comment->tag = $request->tag;
+      $comment->comment = $request->comment;
+      $comment->save();
+
+      return;
     }
 
     /**
