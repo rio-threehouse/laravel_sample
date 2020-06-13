@@ -5,9 +5,22 @@
 <div class="container ops-main">
 <div class="row">
   <div class="col-md-12">
+    <br />
+    <button class="btn btn-xs btn-secondary">
+      @if (Route::has('login'))
+        <div>
+            @auth
+                <a href="{{ route('logout') }}">Logout</a>
+            @else
+                <a href="{{ route('login') }}">Login/Signup</a>
+            @endauth
+        </div>
+    @endif
+    </button>
     <h3 class="ops-title">コメント一覧</h3>
   </div>
 </div>
+@if(Auth::check()) 
 <div class="row">
   <div class="col-md-11 col-md-offset-1">
     <table class="table text-center">
@@ -43,3 +56,4 @@
     <div><a href="/comment/create" class="btn btn-default">新規作成</a></div>
   </div>
 </div>
+@endif
